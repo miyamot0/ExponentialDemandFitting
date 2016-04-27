@@ -96,7 +96,7 @@ for (j in 1:max(SourceFrame$p))
   }
 }
 
-axis_mod <- function(l) { 
+custom_axis <- function(l) { 
   l <- paste("10^", l, sep = "")  
   parse(text=l) 
 } 
@@ -115,7 +115,7 @@ logChart <- ggplot() +
     breaks = scales::trans_breaks("log10", function(x) 10^x),
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) + 
-  scale_y_continuous(labels=axis_mod) +
+  scale_y_continuous(labels=custom_axis) +
   annotation_logticks(sides = "b") +
   xlab("log(Price)") +
   theme(legend.title = element_blank()) +
