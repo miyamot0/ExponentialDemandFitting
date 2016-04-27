@@ -19,6 +19,14 @@
 # params = Demand Function fittings
 #
 
+if (!require(ggplot2)) { install.packages('ggplot2', repos = 'http://cran.us.r-project.org') }
+
+if (!require(nlstools)) { install.packages('nlstools', repos = 'http://cran.us.r-project.org') }
+
+if (!require(nlmrt)) { install.packages('nlmrt', repos = 'http://cran.us.r-project.org') }
+
+if (!require(grid)) { install.packages('grid', repos = 'http://cran.us.r-project.org') }
+
 SourceFrame <- data.frame(
   p=pLoad,
   y=yLoad,
