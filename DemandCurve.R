@@ -15,12 +15,19 @@
 #    You should have received a copy of the GNU General Public License
 #    along with Small N Stats.  If not, see <http://www.gnu.org/licenses/gpl-2.0.html>.
 #
-# 
+# summary
+# R script for individual/batched demand curve analyses.
+#
+# dependencies
+# @ggplot2 = individual/aggregated visual of logged demand curves
+# @nlstools = confint2 for bootstrapped confidence intervals (all parameters)
+# @nlmrt = Nash's customized optimization of L-M residual reduction 
+#
 # params = Demand Function fittings
-# @p <- participant id
-# @y <- consumption
-# @x <- pricing
-# @k <- k value
+# @p <- participant id  {e.g.,  c(1,1,1,  2, ... )    }
+# @y <- consumption     {e.g.,  c(10,7,3, 9, ... )    }
+# @x <- pricing         {e.g.,  c(0.5,1,  5, ... )    }
+# @k <- k value         {e.g.,  c(4,4,4,  4, ... )    }
 #
 
 if (!require(ggplot2)) { install.packages('ggplot2', repos = 'http://cran.us.r-project.org') }
@@ -28,8 +35,6 @@ if (!require(ggplot2)) { install.packages('ggplot2', repos = 'http://cran.us.r-p
 if (!require(nlstools)) { install.packages('nlstools', repos = 'http://cran.us.r-project.org') }
 
 if (!require(nlmrt)) { install.packages('nlmrt', repos = 'http://cran.us.r-project.org') }
-
-if (!require(grid)) { install.packages('grid', repos = 'http://cran.us.r-project.org') }
 
 SourceFrame <- data.frame(
   p=pLoad,
