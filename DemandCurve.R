@@ -37,8 +37,6 @@ SourceFrame <- data.frame(
   x=xLoad,
   k=kLoad)
 
-#SourceFrame
-
 nSimulated <- max(SourceFrame$p)
 
 fitFrame <- data.frame(
