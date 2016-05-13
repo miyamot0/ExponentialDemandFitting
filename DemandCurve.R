@@ -68,7 +68,7 @@ fitFrame <- data.frame(
 
 for (i in 1:nSimulated)
 {
-  fit <- wrapnls(data=SourceFrame[SourceFrame$p==i,], (log(y)/log(10)) ~ (log(q0)/log(10)) + k * (exp(-alpha*q0*x)-1), start=c(q0=3, alpha=0.000000001), control = list(maxiter = 1000))
+  fit <- nlxb(data=SourceFrame[SourceFrame$p==i,], (log(y)/log(10)) ~ (log(q0)/log(10)) + k * (exp(-alpha*q0*x)-1), start=c(q0=3, alpha=0.000000001), control = list(maxiter = 1000))
   
   fitFrame[fitFrame$p==i,]$q0 <- as.numeric(coef(fit)["q0"])
   fitFrame[fitFrame$p==i,]$alpha <- as.numeric(coef(fit)["alpha"])
